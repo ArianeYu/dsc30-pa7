@@ -1,10 +1,10 @@
 /*
- * Name: TODO
- * PID:  TODO
+ * Name: Ariane Yu
+ * PID:  A16008867
  */
 
 /**
- * TODO
+ * Use 5-ary max-heap to generate a priority queue.
  *
  * @param <T> Generic type
  */
@@ -18,7 +18,8 @@ public class MyPriorityQueue<T extends Comparable<? super T>> {
      * @param initialSize the given size
      */
     public MyPriorityQueue(int initialSize) {
-        /* TODO */
+        int d = 5;
+        pQueue = new dHeap<>(d, initialSize, true);
     }
 
     /**
@@ -30,8 +31,11 @@ public class MyPriorityQueue<T extends Comparable<? super T>> {
      * @return returns true
      */
     public boolean offer(T element) throws NullPointerException {
-        /* TODO */
-        return false;
+        if (element == null) {
+            throw new NullPointerException();
+        }
+        pQueue.add(element);
+        return true;
     }
 
     /**
@@ -41,15 +45,14 @@ public class MyPriorityQueue<T extends Comparable<? super T>> {
      * @return The head of the queue (largest element), or null if queue is empty.
      */
     public T poll() {
-        /* TODO */
-        return null;
+        return pQueue.remove();
     }
 
     /**
      * Clears the contents of the queue
      */
     public void clear() {
-        /* TODO */
+        pQueue.clear();
     }
 
     /**
@@ -59,8 +62,7 @@ public class MyPriorityQueue<T extends Comparable<? super T>> {
      * @return the next item to be removed, null if the queue is empty
      */
     public T peek() {
-        /* TODO */
-        return null;
+        return pQueue.element();
     }
 
     /**
@@ -68,8 +70,7 @@ public class MyPriorityQueue<T extends Comparable<? super T>> {
      * @return true is the queue is empty, false otherwise
      */
     public boolean isEmpty() {
-        /* TODO */
-        return false;
+        return pQueue.size() == 0;
     }
 
 }
